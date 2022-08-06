@@ -20,6 +20,26 @@ export function App() {
     setPage(index);
   }
 
+  function prevPage() {
+    setPage(oldPage => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        prevPage = data.length - 1;
+      }
+      return prevPage;
+    });
+  }
+
+  function nextPage() {
+    setPage(oldPage => {
+      let nextPage = oldPage + 1;
+      if (nextPage > data.length - 1) {
+        nextPage = 0;
+      }
+      return nextPage;
+    });
+  }
+
   return (
     <main>
       <div className="section-title">
@@ -36,6 +56,9 @@ export function App() {
 
         {!loading && (
           <div className="btn-container">
+            <button className="prev-btn" onClick={prevPage}>
+              prev
+            </button>
             {data.map((_, index) => {
               return (
                 <button
@@ -49,6 +72,9 @@ export function App() {
                 </button>
               );
             })}
+            <button className="next-btn" onClick={nextPage}>
+              next
+            </button>
           </div>
         )}
       </section>
