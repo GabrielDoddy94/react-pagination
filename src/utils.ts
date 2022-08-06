@@ -10,4 +10,6 @@ export function paginate(followers: FollowersData[]) {
 
     return followers.slice(start, end);
   });
+
+  return newFollowers;
 }
