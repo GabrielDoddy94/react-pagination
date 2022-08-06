@@ -12,6 +12,7 @@ export function useFetch() {
   async function getProducts() {
     const response = await fetch(url);
     const data: ResponseFollowersData[] = await response.json();
+    paginate(data);
     setData(data);
     setLoading(false);
   }
