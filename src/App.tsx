@@ -59,6 +59,7 @@ export function App() {
             <button className="prev-btn" onClick={prevPage}>
               prev
             </button>
+
             {data.map((_, index) => {
               return (
                 <button
@@ -72,6 +73,7 @@ export function App() {
                 </button>
               );
             })}
+
             <button className="next-btn" onClick={nextPage}>
               next
             </button>
